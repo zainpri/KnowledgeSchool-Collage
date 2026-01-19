@@ -1,0 +1,131 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Pay Fees </title>
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/svg+xml">
+    <link rel="stylesheet" href="css/fees_style.CSS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        /* Extra Styling for Copy Button and Layout */
+        .payment-card {
+            background: #fdfdfd;
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #25D366;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .copy-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .copy-btn:hover { background: #0056b3; }
+        .whatsapp-btn {
+            display: block;
+            background: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        #accountNumber {
+            font-size: 28px;
+            font-weight: bold;
+            color: #25D366;
+            letter-spacing: 1px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="image/logo.png" id="logo-img"></a>
+            <div class="nav-links" id="navLinks">
+                <span class="icon" onclick="hidemenu()">&#10005;</span>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Admission_page.html">Admission</a></li>
+                    <li><a href="index.html#course_call">Course</a></li>
+                    <li><a href="fees_page.html">Fees</a></li>
+                    <li><a href="Contact_page.html">Contact</a></li>
+                </ul>
+            </div> 
+            <span class="icon" onclick="showmenu()">&#9776;</span>
+        </nav>
+
+        <div class="wrapper">
+            <div class="r_form_wrap">
+                <div class="title">
+                    <p id="header_fees">Online Fees Payment</p>
+                </div>
+
+                <div class="r_form">
+                    <div class="payment-card">
+                        <img src="https://images.seeklogo.com/logo-png/50/1/easypaisa-new-logo-png_seeklogo-500291.png" alt="EasyPaisa" style="width: 140px;">
+                        
+                        <p style="margin-top: 15px; color: #666;">Account Holder Name:</p>
+                        <h2 style="color: #333; margin: 5px 0;">Muhammad Naeem</h2>
+                        
+                        <hr style="margin: 20px 0; border: 0; border-top: 1px dashed #ccc;">
+                        
+                        <p style="color: #666; margin: 0;">EasyPaisa Number:</p>
+                        <p id="accountNumber">03167734559</p>
+                        
+                        <button class="copy-btn" onclick="copyNumber()">
+                            <i class="fa fa-copy"></i> Copy Number
+                        </button>
+                    </div>
+
+                    <p style="text-align: center; color: #555; font-size: 14px; padding: 0 10px;">
+                        Number copy karein aur apni EasyPaisa app se fees bhejein. Payment ke baad screenshot niche lazmi bhejein.
+                    </p>
+
+                    <a href="https://wa.me/923087212649?text=Assalam-o-Alaikum, Maine fees pay kar di hai. Ye raha screenshot." class="whatsapp-btn">
+                        <i class="fa fa-whatsapp"></i> Send Proof (WhatsApp)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Navigation Menu Functions
+        var navLinks = document.getElementById("navLinks");
+        function showmenu() { navLinks.style.right = "0"; }
+        function hidemenu() { navLinks.style.right = "-200px"; }
+
+        // Copy Function
+        function copyNumber() {
+            var numberToCopy = "03167734559";
+            navigator.clipboard.writeText(numberToCopy).then(function() {
+                alert("Number copied to clipboard: " + numberToCopy);
+            }, function(err) {
+                // Fallback for older browsers
+                const el = document.createElement('textarea');
+                el.value = numberToCopy;
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
+                alert("Number copied!");
+            });
+        }
+    </script>
+</body>
+</html>
